@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe - 1v1 Game !</title>
+        <style>
+            body {
+                background-image: linear-gradient(45deg,purple,darkblue,darkviolet);
+                height: 535px;
+                background-size: cover;
+                color: yellow;
+            }
+            #grid {
+                border-color: cyan;
+                padding: auto;
+            }
+            table {
+                border-radius: 5px;
+                background-color: black;
+                text-align: center;
+                text-shadow: 0px 0px 15px green;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 75px;
+                /*color: aqua;*/
+            }
+        </style>
+        <script type="text/javascript">
+            let x=[0,0,0,0,0,0,0,0,0];
+            let o=[0,0,0,0,0,0,0,0,0];
+            var turn=Number(0);
+            var c1t=false;
+            var c2t=false;
+            var c3t=false;
+            var c4t=false;
+            var c5t=false; 
+            var c6t=false;
+            var c7t=false;
+            var c8t=false;
+            var c9t=false;
+            
+            var over=false;
+            function endG() {
+                setTimeout(function() {
+                    alert("Thanks for Playing! Refreshing the Page for a New Round . . . ");
+                    window.location.reload();
+                },1500);
+            }
+
+            function rWin() {
+                if (turn>=5) {
+                    
+                        /* X Player Wins: */
+
+                    if (x.indexOf(1)!=-1 && x.indexOf(2)!=-1 && x.indexOf(3)!=-1) {
+                        document.getElementById('1').style.backgroundColor="wheat";
+                        document.getElementById('2').style.backgroundColor="wheat";
+                        document.getElementById('3').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    } else if (x.indexOf(4)!=-1 && x.indexOf(5)!=-1 && x.indexOf(6)!=-1) {
+                        document.getElementById('4').style.backgroundColor="wheat";
+                        document.getElementById('5').style.backgroundColor="wheat";
+                        document.getElementById('6').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    } else if (x.indexOf(7)!=-1 && x.indexOf(8)!=-1 && x.indexOf(9)!=-1) {
+                        document.getElementById('7').style.backgroundColor="wheat";
+                        document.getElementById('8').style.backgroundColor="wheat";
+                        document.getElementById('9').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    } else if (x.indexOf(1)!=-1 && x.indexOf(4)!=-1 && x.indexOf(7)!=-1) {
+                        document.getElementById('1').style.backgroundColor="wheat";
+                        document.getElementById('4').style.backgroundColor="wheat";
+                        document.getElementById('7').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    }  else if (x.indexOf(2)!=-1 && x.indexOf(5)!=-1 && x.indexOf(8)!=-1) {
+                        document.getElementById('2').style.backgroundColor="wheat";
+                        document.getElementById('5').style.backgroundColor="wheat";
+                        document.getElementById('8').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    }  else if (x.indexOf(3)!=-1 && x.indexOf(6)!=-1 && x.indexOf(9)!=-1) {
+                        document.getElementById('3').style.backgroundColor="wheat";
+                        document.getElementById('6').style.backgroundColor="wheat";
+                        document.getElementById('9').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    } else if (x.indexOf(1)!=-1 && x.indexOf(5)!=-1 && x.indexOf(9)!=-1) {
+                        document.getElementById('1').style.backgroundColor="wheat";
+                        document.getElementById('5').style.backgroundColor="wheat";
+                        document.getElementById('9').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    } else if (x.indexOf(3)!=-1 && x.indexOf(5)!=-1 && x.indexOf(7)!=-1) {
+                        document.getElementById('3').style.backgroundColor="wheat";
+                        document.getElementById('5').style.backgroundColor="wheat";
+                        document.getElementById('7').style.backgroundColor="wheat";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+
+                        /* O Player Wins: */
+
+                    } else if (o.indexOf(1)!=-1 && o.indexOf(2)!=-1 && o.indexOf(3)!=-1) {
+                        document.getElementById('1').style.backgroundColor="skyblue";
+                        document.getElementById('2').style.backgroundColor="skyblue";
+                        document.getElementById('3').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'O' Won!");
+                        },1500);
+                        endG();
+                    } else if (o.indexOf(4)!=-1 && o.indexOf(5)!=-1 && o.indexOf(6)!=-1) {
+                        document.getElementById('4').style.backgroundColor="skyblue";
+                        document.getElementById('5').style.backgroundColor="skyblue";
+                        document.getElementById('6').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'O' Won!");
+                        },1500);
+                        endG();
+                    } else if (o.indexOf(7)!=-1 && o.indexOf(8)!=-1 && o.indexOf(9)!=-1) {
+                        document.getElementById('7').style.backgroundColor="skyblue";
+                        document.getElementById('8').style.backgroundColor="skyblue";
+                        document.getElementById('9').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'X' Won!");
+                        },1500);
+                        endG();
+                    } else if (o.indexOf(1)!=-1 && o.indexOf(4)!=-1 && o.indexOf(7)!=-1) {
+                        document.getElementById('1').style.backgroundColor="skyblue";
+                        document.getElementById('4').style.backgroundColor="skyblue";
+                        document.getElementById('7').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'O' Won!");
+                        },1500);
+                        endG();
+                    }  else if (o.indexOf(2)!=-1 && o.indexOf(5)!=-1 && o.indexOf(8)!=-1) {
+                        document.getElementById('2').style.backgroundColor="skyblue";
+                        document.getElementById('5').style.backgroundColor="skyblue";
+                        document.getElementById('8').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'O' Won!");
+                        },1500);
+                        endG();
+                    }  else if (o.indexOf(3)!=-1 && o.indexOf(6)!=-1 && o.indexOf(9)!=-1) {
+                        document.getElementById('3').style.backgroundColor="skyblue";
+                        document.getElementById('6').style.backgroundColor="skyblue";
+                        document.getElementById('9').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'O' Won!");
+                        },1500);
+                        endG();
+                    } else if (o.indexOf(1)!=-1 && o.indexOf(5)!=-1 && o.indexOf(9)!=-1) {
+                        document.getElementById('1').style.backgroundColor="skyblue";
+                        document.getElementById('5').style.backgroundColor="skyblue";
+                        document.getElementById('9').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'O' Won!");
+                        },1500);
+                        endG();
+                    } else if (o.indexOf(3)!=-1 && o.indexOf(5)!=-1 && o.indexOf(7)!=-1) {
+                        document.getElementById('3').style.backgroundColor="skyblue";
+                        document.getElementById('5').style.backgroundColor="skyblue";
+                        document.getElementById('7').style.backgroundColor="skyblue";
+                        over=true;
+                        setTimeout(function() {
+                            alert("Player 'O' Won!");
+                        },1500);
+                        endG();
+                    } else if (turn==9) {
+                        over=true;
+                        setTimeout(function() {
+                            alert("Match Drawn!");
+                        },1500);
+                        endG();
+                    }
+                }
+            }
+            function c1() {
+                if (c1t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("1").innerHTML="X";
+                        document.getElementById("1").style="color:red";
+                        x[0]=1;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("1").innerHTML="O";
+                        document.getElementById("1").style="color:blue";
+                        o[0]=1;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c1t=true;
+                }
+            }
+            function c2() {
+                if (c2t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("2").innerHTML="X";
+                        document.getElementById("2").style="color:red";
+                        x[1]=2;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("2").innerHTML="O";
+                        document.getElementById("2").style="color:blue";
+                        o[1]=2;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c2t=true;
+                }
+            }
+            function c3() {
+                if (c3t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("3").innerHTML="X";
+                        document.getElementById("3").style="color:red";
+                        x[2]=3;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("3").innerHTML="O";
+                        document.getElementById("3").style="color:blue";
+                        o[2]=3;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c3t=true;
+                }
+            }
+            function c4() {
+                if (c4t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("4").innerHTML="X";
+                        document.getElementById("4").style="color:red";
+                        x[3]=4;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("4").innerHTML="O";
+                        document.getElementById("4").style="color:blue";
+                        o[3]=4;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c4t=true;
+                }
+            }
+            function c5() {
+                if (c5t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("5").innerHTML="X";
+                        document.getElementById("5").style="color:red";
+                        x[4]=5;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("5").innerHTML="O";
+                        document.getElementById("5").style="color:blue";
+                        o[4]=5;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c5t=true;
+                }
+            }
+            function c6() {
+                if (c6t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("6").innerHTML="X";
+                        document.getElementById("6").style="color:red";
+                        x[5]=6;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("6").innerHTML="O";
+                        document.getElementById("6").style="color:blue";
+                        o[5]=6;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c6t=true;
+                }
+            }
+            function c7() {
+                if (c7t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("7").innerHTML="X";
+                        document.getElementById("7").style="color:red";
+                        x[6]=7;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("7").innerHTML="O";
+                        document.getElementById("7").style="color:blue";
+                        o[6]=7;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c7t=true;
+                }
+            }
+            function c8() {
+                if (c8t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("8").innerHTML="X";
+                        document.getElementById("8").style="color:red";
+                        x[7]=8;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("8").innerHTML="O";
+                        document.getElementById("8").style="color:blue";
+                        o[7]=8;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c8t=true;
+                }
+            }
+            function c9() {
+                if (c9t==false && over==false) {
+                    if (turn%2==0) {
+                        document.getElementById("9").innerHTML="X";
+                        document.getElementById("9").style="color:red";
+                        x[8]=9;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    } else if (turn%2==1) {
+                        document.getElementById("9").innerHTML="O";
+                        document.getElementById("9").style="color:blue";
+                        o[8]=9;
+                        if (turn!=9) {
+                            turn++;
+                        }
+                        rWin();
+                    }
+                    c9t=true;
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+    <font face="Trebuchet MS" size="5">
+    <center>
+        <h1>Tic Tac Toe</h1>
+        <table id="grid" border="10" cellspacing="5">
+            <colgroup>
+                <col width="125">
+                <col width="125">
+                <col width="125">
+            </colgroup>
+            <tr height="125">
+                <td id="1" class="sq" onclick="c1()"></td>
+                <td id="2" class="sq" onclick="c2()"></td>
+                <td id="3" class="sq" onclick="c3()"></td>
+            </tr>
+            <tr height="125">
+                <td id="4" class="sq" onclick="c4()"></td>
+                <td id="5" class="sq" onclick="c5()"></td>
+                <td id="6" class="sq" onclick="c6()"></td>
+            </tr>
+            <tr height="125">
+                <td id="7" class="sq" onclick="c7()"></td>
+                <td id="8" class="sq" onclick="c8()"></td>
+                <td id="9" class="sq" onclick="c9()"></td>
+            </tr>
+        </table>
+    </center>
+    </font>
+    </body>
+</html>
